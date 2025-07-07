@@ -89,7 +89,6 @@ export function FindVehicleForm() {
         <p className="card-text text-muted mb-0">Search for a vehicle using its chassis ID</p>
       </div>
       <div className="card-body">
-        {/* Search Section */}
         <div className="mb-4">
           <label htmlFor="chassis-search" className="form-label">
             Chassis ID
@@ -100,19 +99,16 @@ export function FindVehicleForm() {
               className="form-control"
               id="chassis-search"
               value={
-                // Exibe o '-' após as duas letras, mas não salva no estado
                 chassisIdInput.length > 2
                   ? `${chassisIdInput.slice(0, 2)}-${chassisIdInput.slice(2)}`
                   : chassisIdInput
               }
               onChange={(e) => {
-                // Remove o '-' para processar apenas letras e números
                 let rawValue = e.target.value.replace(/-/g, "").toUpperCase().replace(/[^A-Z0-9]/g, "")
-                // Permite apenas 2 letras e até 6 números após as letras
                 if (rawValue.length > 2) {
                   rawValue = rawValue.slice(0, 2) + rawValue.slice(2).replace(/[^0-9]/g, "")
                 }
-                rawValue = rawValue.slice(0, 8) // Limita a 8 caracteres (2 letras + 6 números)
+                rawValue = rawValue.slice(0, 8)
                 setChassisIdInput(rawValue)
                 setSearchStatus("idle")
                 setFoundVehicle(null)

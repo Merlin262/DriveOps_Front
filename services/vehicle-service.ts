@@ -16,7 +16,7 @@ export class VehicleService implements IVehicleService {
 
   async addVehicle(vehicleInput: IVehicleInput): Promise<IVehicle> {
     const vehicleTypeEnum: Record<string, number> = { Bus: 0, Truck: 1, Car: 2 }
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://localhost:7022"
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
     const payload = {
       type: vehicleTypeEnum[vehicleInput.type],
       chassisSeries: vehicleInput.chassisId.chassisSeries,
@@ -46,14 +46,11 @@ export class VehicleService implements IVehicleService {
       chassisId: {
         chassisSeries: vehicle.chassisSeries,
         chassisNumber: vehicle.chassisNumber,
-      },
-      createdAt: vehicle.createdAt ? new Date(vehicle.createdAt) : new Date(),
-      updatedAt: vehicle.updatedAt ? new Date(vehicle.updatedAt) : new Date(),
+      }
     }
   }
 
   async editVehicleColor(chassisSeries: string, chassisNumber: number, color: string): Promise<IVehicle> {
-    console.log('aqui')
     const vehicle = this.vehicles.find(
       (v) => v.chassisId.chassisSeries === chassisSeries && v.chassisId.chassisNumber === chassisNumber,
     )
@@ -66,9 +63,21 @@ export class VehicleService implements IVehicleService {
     return vehicle
   }
 
+  async updateVehicleColor(chassisSeries: string, chassisNumber: number, newColor: string): Promise<void> {
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+    const response = await fetch(`${baseUrl}/api/Vehicles/${chassisSeries}/${chassisNumber}/color`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newColor.trim()),
+    })
+    if (!response.ok) {
+      throw new Error("Failed to update vehicle color")
+    }
+  }
+
   async getAllVehicles(): Promise<IVehicle[]> {
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://localhost:7022"
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL 
       const apiUrl = `${baseUrl}/api/Vehicles`
       const response = await fetch(apiUrl)
       if (!response.ok) throw new Error("Failed to fetch vehicles")
@@ -96,7 +105,6 @@ export class VehicleService implements IVehicleService {
       if (!response.ok) return null
       const vehicle = await response.json()
 
-      // Mapeia para o formato esperado pelo front-end
       const mappedVehicle: IVehicle = {
         ...vehicle,
         type: this.vehicleTypeMap[vehicle.type as keyof typeof this.vehicleTypeMap] ?? "Car",

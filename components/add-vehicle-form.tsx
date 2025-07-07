@@ -56,26 +56,23 @@ export function AddVehicleForm() {
     setSubmitStatus("idle")
 
     try {
-      // Monta o payload conforme CreateVehicleCommand
       const vehicleTypeEnum: Record<string, number> = { Bus: 0, Truck: 1, Car: 2 }
       const payload = {
-        type: vehicleTypeEnum[formData.type], // envia como número
+        type: vehicleTypeEnum[formData.type],
         chassisSeries: formData.chassisId.chassisSeries,
         chassisNumber: Number(formData.chassisId.chassisNumber),
         color: formData.color,
       }
-      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://localhost:7022"
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
       const response = await fetch(`${baseUrl}/api/Vehicles`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       })
       if (!response.ok) {
-        // Tenta extrair mensagem de erro detalhada do backend
         let errorText = await response.text()
         let userMessage = "Erro ao adicionar veículo"
         if (errorText) {
-          // Tenta extrair a primeira linha da exceção para mostrar ao usuário
           const match = errorText.match(/System\.InvalidOperationException: (.+?)\r?\n/)
           if (match && match[1]) {
             userMessage = match[1]
@@ -85,7 +82,6 @@ export function AddVehicleForm() {
       }
       setSubmitStatus("success")
       setSubmitMessage("Vehicle added successfully!")
-      // Reset form
       setFormData({
         chassisId: {
           chassisSeries: "",
@@ -147,7 +143,6 @@ export function AddVehicleForm() {
                 value={formData.chassisId.chassisSeries}
                 maxLength={2}
                 onChange={(e) => {
-                  // Permite apenas letras, limita a 2, e força maiúsculo
                   const value = e.target.value.replace(/[^a-zA-Z]/g, "").toUpperCase().slice(0, 2)
                   handleInputChange("chassisSeries", value)
                 }}

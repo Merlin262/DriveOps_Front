@@ -24,11 +24,8 @@ export function EditVehicleForm() {
       return
     }
 
-    console.log(chassisIdInput)
 
-    // Remove o hífen antes de passar para o parse
     const parsedChassisId = parseChassisId(chassisIdInput.replace("-", "").trim())
-    console.log(parsedChassisId)
     if (!parsedChassisId) {
       setStatus("error")
       setMessage("Invalid chassis ID format. Use format: AB-123456")
@@ -76,18 +73,13 @@ export function EditVehicleForm() {
     setIsUpdating(true)
     setStatus("idle")
 
-    
     try {
       const raw = chassisIdInput.replace(/-/g, "")
       const series = raw.slice(0, 2)
       const number = parseInt(raw.slice(2), 10)
-      const response = await fetch(`${API_BASE_URL}/api/Vehicles/${series}/${number}/color`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newColor.trim()),
-      })
-      if (!response.ok) throw new Error("Failed to update vehicle color")
+      await vehicleService.updateVehicleColor(series, number, newColor)
       await refreshVehicles()
+
       setStatus("success")
       setMessage("Vehicle color updated successfully!")
       setFoundVehicle((prev) => (prev ? { ...prev, color: newColor.trim(), updatedAt: new Date() } : null))

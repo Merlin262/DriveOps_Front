@@ -39,32 +39,11 @@ export function getPassengerCount(type: VehicleType): number {
   }
 }
 
-// Helper function to format chassis ID for display
 export function formatChassisId(chassisId: IChassisId): string {
   return `${chassisId.chassisSeries}-${chassisId.chassisNumber}`
 }
 
-// Helper function to parse chassis ID from string
-// export function parseChassisId(chassisIdString: string): IChassisId | null {
-//   console.log(chassisIdString)
-//   const parts = chassisIdString.split("-")
-//   if (parts.length !== 2) return null
-
-//   const chassisNumber = Number.parseInt(parts[1])
-//   console.log(chassisNumber)
-//   if (isNaN(chassisNumber) || chassisNumber < 0) return null
-
-//   console.log(parts[0].trim())
-//   console.log(chassisNumber)
-
-//   return {
-//     chassisSeries: parts[0].trim(),
-//     chassisNumber: chassisNumber,
-//   }
-// }
-
 export function parseChassisId(input: string) {
-  // Aceita exatamente 2 letras e 6 números, sem hífen
   const match = input.match(/^([A-Z]{2})([0-9]{6})$/)
   if (!match) return null
   return {
