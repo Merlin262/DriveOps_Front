@@ -16,14 +16,13 @@ export class VehicleService implements IVehicleService {
 
   async addVehicle(vehicleInput: IVehicleInput): Promise<IVehicle> {
     const vehicleTypeEnum: Record<string, number> = { Bus: 0, Truck: 1, Car: 2 }
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
     const payload = {
       type: vehicleTypeEnum[vehicleInput.type],
       chassisSeries: vehicleInput.chassisId.chassisSeries,
       chassisNumber: Number(vehicleInput.chassisId.chassisNumber),
       color: vehicleInput.color,
     }
-    const response = await fetch(`${baseUrl}/api/Vehicles`, {
+    const response = await fetch(`${API_BASE_URL}/api/Vehicles`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -64,8 +63,7 @@ export class VehicleService implements IVehicleService {
   }
 
   async updateVehicleColor(chassisSeries: string, chassisNumber: number, newColor: string): Promise<void> {
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
-    const response = await fetch(`${baseUrl}/api/Vehicles/${chassisSeries}/${chassisNumber}/color`, {
+    const response = await fetch(`${API_BASE_URL}/api/Vehicles/${chassisSeries}/${chassisNumber}/color`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newColor.trim()),
@@ -77,8 +75,7 @@ export class VehicleService implements IVehicleService {
 
   async getAllVehicles(): Promise<IVehicle[]> {
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL 
-      const apiUrl = `${baseUrl}/api/Vehicles`
+      const apiUrl = `${API_BASE_URL}/api/Vehicles`
       const response = await fetch(apiUrl)
       if (!response.ok) throw new Error("Failed to fetch vehicles")
       const vehicles = await response.json()

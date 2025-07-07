@@ -6,6 +6,7 @@ import { CheckCircle, AlertCircle } from "lucide-react"
 import { useVehicleContext } from "@/contexts/vehicle-context"
 import type { IVehicleInput, VehicleType } from "@/types/vehicle"
 import { getPassengerCount } from "@/types/vehicle"
+import { API_BASE_URL } from "@/lib/config"
 
 export function AddVehicleForm() {
   const { vehicleService, refreshVehicles } = useVehicleContext()
@@ -63,8 +64,7 @@ export function AddVehicleForm() {
         chassisNumber: Number(formData.chassisId.chassisNumber),
         color: formData.color,
       }
-      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
-      const response = await fetch(`${baseUrl}/api/Vehicles`, {
+      const response = await fetch(`${API_BASE_URL}/api/Vehicles`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
