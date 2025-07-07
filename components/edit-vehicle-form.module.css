@@ -1,0 +1,124 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.searchButton {
+  display: flex;
+  align-items: end;
+}
+
+.loadingIcon {
+  height: 1rem;
+  width: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+.searchIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.vehicleCard {
+  background-color: #f9fafb;
+}
+
+.vehicleTitle {
+  font-size: 1.125rem;
+}
+
+.vehicleDetails {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .vehicleDetails {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.currentColor {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.editSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.alertSuccess {
+  border-color: #10b981;
+}
+
+.alertWarning {
+  border-color: #f59e0b;
+}
+
+.alertError {
+  border-color: #ef4444;
+}
+
+.alertIconSuccess {
+  height: 1rem;
+  width: 1rem;
+  color: #10b981;
+}
+
+.alertIconWarning {
+  height: 1rem;
+  width: 1rem;
+  color: #f59e0b;
+}
+
+.alertIconError {
+  height: 1rem;
+  width: 1rem;
+  color: #ef4444;
+}
+
+.alertTextSuccess {
+  color: #047857;
+}
+
+.alertTextWarning {
+  color: #92400e;
+}
+
+.alertTextError {
+  color: #dc2626;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,75 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  padding: 1rem;
+}
+
+.maxWidth {
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.titleIcon {
+  height: 2rem;
+  width: 2rem;
+  color: #2563eb;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.mainCard {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+}
+
+.tabs {
+  width: 100%;
+}
+
+.tabsList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.tabTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tabIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.tabContent {
+  margin-top: 1.5rem;
+}

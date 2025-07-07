@@ -1,0 +1,92 @@
+:root {
+  --bs-primary: #1e3a8a;
+  --bs-primary-rgb: 30, 58, 138;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+}
+
+body {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  min-height: 100vh;
+}
+
+.card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.main-card {
+  box-shadow: 0 1rem 3rem rgba(30, 58, 138, 0.15);
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.text-muted-small {
+  font-size: 0.875rem;
+}
+
+.font-monospace {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Custom primary color overrides */
+.btn-primary {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+  border-color: #1e40af;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.5);
+}
+
+.btn-outline-primary {
+  color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.btn-outline-primary:hover {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.bg-primary {
+  background-color: #1e3a8a !important;
+}
+
+.text-primary {
+  color: #1e3a8a !important;
+}
+
+.border-primary {
+  border-color: #1e3a8a !important;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #1e3a8a;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}

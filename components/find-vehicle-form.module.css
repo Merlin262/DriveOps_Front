@@ -1,0 +1,193 @@
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.searchButton {
+  display: flex;
+  align-items: end;
+}
+
+.loadingIcon {
+  height: 1rem;
+  width: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+.searchIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.alertWarning {
+  border-color: #f59e0b;
+}
+
+.alertError {
+  border-color: #ef4444;
+}
+
+.alertIconWarning {
+  height: 1rem;
+  width: 1rem;
+  color: #f59e0b;
+}
+
+.alertIconError {
+  height: 1rem;
+  width: 1rem;
+  color: #ef4444;
+}
+
+.alertTextWarning {
+  color: #92400e;
+}
+
+.alertTextError {
+  color: #dc2626;
+}
+
+.vehicleCard {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  border-color: #93c5fd;
+}
+
+.vehicleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vehicleTitle {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vehicleIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #2563eb;
+}
+
+.yearBadge {
+  font-size: 1.125rem;
+  padding: 0.75rem;
+}
+
+.chassisDisplay {
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+}
+
+.detailsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .detailsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  color: #111827;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 0.25rem;
+  margin: 0;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailLabel {
+  color: #6b7280;
+}
+
+.detailValue {
+  font-weight: 500;
+}
+
+.priceValue {
+  font-weight: bold;
+  color: #059669;
+  font-size: 1.125rem;
+}
+
+.summaryCard {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.summaryTitle {
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.summaryText {
+  color: #374151;
+  margin: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,159 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.refreshIcon {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.loadingIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem 0;
+  color: #6b7280;
+}
+
+.emptyIcon {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 auto 1rem;
+  opacity: 0.5;
+}
+
+.emptySubtext {
+  font-size: 0.875rem;
+}
+
+.vehicleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .vehicleGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .vehicleGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vehicleCard {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.vehicleCard:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.cardHeader {
+  padding-bottom: 0.75rem;
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+}
+
+.chassisId {
+  font-family: "Courier New", monospace;
+  font-size: 0.875rem;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailLabel {
+  color: #6b7280;
+}
+
+.detailValue {
+  font-weight: 500;
+}
+
+.priceSection {
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #059669;
+}
+
+.updateDate {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
